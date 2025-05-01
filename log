@@ -12,3 +12,12 @@ test.c:6:8: error: '_strdup' redeclared without dllimport attribute: previous dl
         ^~~~~~~
 cc1.exe: all warnings being treated as errors
 082a5b9
+Thu, May  1, 2025  6:41:34 PM: 
+ treemap.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+Compilation failed
+test.c:6:8: error: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Werror=attributes]
+ char * _strdup(const char * str) {
+        ^~~~~~~
+cc1.exe: all warnings being treated as errors
+7f9c4af
