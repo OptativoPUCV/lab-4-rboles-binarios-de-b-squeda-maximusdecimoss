@@ -119,3 +119,25 @@ test.c:6:8: error: '_strdup' redeclared without dllimport attribute: previous dl
         ^~~~~~~
 cc1.exe: all warnings being treated as errors
 f16d912
+Thu, May  1, 2025  8:44:08 PM: 
+ treemap.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+Compilation failed
+In file included from test.c:4:
+treemap.c: In function 'eraseTreeMap':
+treemap.c:107:5: error: implicit declaration of function 'removeNode'; did you mean 'remove'? [-Werror=implicit-function-declaration]
+     removeNode(tree, node);
+     ^~~~~~~~~~
+     remove
+treemap.c: At top level:
+treemap.c:110:6: error: conflicting types for 'removeNode' [-Werror]
+ void removeNode(TreeMap * tree, TreeNode* node) {
+      ^~~~~~~~~~
+treemap.c:107:5: note: previous implicit declaration of 'removeNode' was here
+     removeNode(tree, node);
+     ^~~~~~~~~~
+test.c:6:8: error: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Werror=attributes]
+ char * _strdup(const char * str) {
+        ^~~~~~~
+cc1.exe: all warnings being treated as errors
+c4c8764
