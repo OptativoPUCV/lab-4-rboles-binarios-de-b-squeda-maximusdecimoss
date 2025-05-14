@@ -18,9 +18,12 @@ struct TreeMap {
     int (*lower_than) (void* key1, void* key2);
 };
 
-int is_equal(TreeMap* tree, void* key1, void* key2){
-    if(tree->lower_than(key1,key2)==0 &&  
-        tree->lower_than(key2,key1)==0) return 1;
+// Prototipo de removeNode para evitar la advertencia
+void removeNode(TreeMap * tree, TreeNode* node);
+
+int is_equal(TreeMap* tree, void* key1, void* key2) {
+    if (tree->lower_than(key1, key2) == 0 &&  
+        tree->lower_than(key2, key1) == 0) return 1;
     else return 0;
 }
 
@@ -38,9 +41,9 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
     TreeMap * map = (TreeMap *) malloc(sizeof(TreeMap));
     if (map == NULL) return NULL;
 
-    map -> root = NULL;
-    map -> current = NULL;
-    map -> lower_than = lower_than;
+    map->root = NULL;
+    map->current = NULL;
+    map->lower_than = lower_than;
 
     return map;
 }
@@ -99,7 +102,7 @@ Pair* searchTreeMap(TreeMap* tree, void* key) {
     return NULL;  
 }
 
-void eraseTreeMap(TreeMap * tree, void* key){
+void eraseTreeMap(TreeMap * tree, void* key) {
     if (tree == NULL || tree->root == NULL) return;
 
     if (searchTreeMap(tree, key) == NULL) return;
